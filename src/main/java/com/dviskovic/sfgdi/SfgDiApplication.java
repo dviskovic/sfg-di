@@ -13,10 +13,9 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 		var ctx = SpringApplication.run(SfgDiApplication.class, args);
 
-//		var c = (MyController) ctx.getBean("myController");
-//		var t = c.hi();
-
-//		System.out.println(t);
+		var c = (MyController) ctx.getBean("myController");
+		System.out.println("primary injected:");
+		System.out.println(c.hi());
 
 		System.out.println("property injected:");
 		var prop = (PropertyInjectedController)ctx.getBean("propertyInjectedController");
