@@ -1,9 +1,6 @@
 package com.dviskovic.sfgdi;
 
-import com.dviskovic.sfgdi.controllers.ConstructorInjectedController;
-import com.dviskovic.sfgdi.controllers.MyController;
-import com.dviskovic.sfgdi.controllers.PropertyInjectedController;
-import com.dviskovic.sfgdi.controllers.SetterInjectedController;
+import com.dviskovic.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -12,6 +9,9 @@ public class SfgDiApplication {
 
 	public static void main(String[] args) {
 		var ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		var i18n = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18n.sayGreeting());
 
 		var c = (MyController) ctx.getBean("myController");
 		System.out.println("primary injected:");
